@@ -1,0 +1,57 @@
+<%- include('layout/header') %>
+<div class="container">
+    <div class="row">
+        <div class= "col-lg-6 mx-auto -mt-4">
+            <div class= "card shadow">
+                <div class="card-header bg-success">
+                    <h3 class= "text-light">EDit Interview (<%= user.name %>)</h3>
+                </div>
+            <div class ="card-body p-4">
+        <form action ="/update/<%= user._id %>" method="post" , id="add-form" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="name" class="form-control form control-lg">Candidate Name</label>
+              <div class="col-sm-10">
+                <input type="text"   name="name" placeholder="Enter Candidate Name" value="<%= user.name %>">
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-control form control-lg">Interviewer Name</label>
+                <div class="col-sm-10">
+                  <input type="text"   name="Intname" value="<%= user.Intname %>" placeholder="Enter Interviewer Name">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="Email" class="form-control form control-lg">Email</label>
+                <div class="col-sm-10">
+                  <input type="text"   name="Email" placeholder="Enter Email" value="<%= user.email %>">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="Start Time" class="form-control form control-lg">Start Time</label>
+                <div class="col-sm-10">
+                  <input type="text"   name="StartTime" placeholder="Enter Start Time" value="<%= user.startTime %>">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="End Time" class="form-control form control-lg">End Time</label>
+                <div class="col-sm-10">
+                  <input type="text"   name="EndTime" placeholder="Enter End Time" value="<%= user.endTime %>">
+                </div>
+              </div>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Resume</label>
+                <input type="file" class="form-control-file"  name="resume" id="exampleFormControlFile1">
+                <img src="/<%= user.resume %>" width="100" class="img-thumbnail mt-1"/>
+              </div>
+              <input type="hidden" name="old_resume" value= "<%= user.resume %>" />
+              <div class="mb-3 d-grid">
+               <input type="submit"   name="submit" value="Update Interview" class="btn btn-success btn-lg">
+               </div>
+
+          </form>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+<%- include('layout/foot') %>
